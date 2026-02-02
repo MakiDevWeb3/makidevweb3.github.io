@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Guides Crypto + HubCrypto | Maki</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Variables & Reset */
+        :root {
+            --primary: #0A0A0A;
+            --secondary: #1A1A1A;
+            --accent: #00D4AA;
+            --text: #F5F5F5;
+            --text-light: #A0A0A0;
+            --border: #333333;
+            --radius: 12px;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            --gradient: linear-gradient(135deg, #00D4AA 0%, #0099FF 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .app-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 30px 0 40px;
+        }
+
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 3px solid var(--accent);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Free Guides Section */
+        .free-guides {
+            background: var(--secondary);
+            border-radius: var(--radius);
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+        }
+
+        .guides-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            color: var(--accent);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .guide-item {
+            background: rgba(0, 212, 170, 0.05);
+            border: 1px solid rgba(0, 212, 170, 0.2);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .guide-item:hover {
+            transform: translateX(5px);
+            border-color: var(--accent);
+        }
+
+        .guide-icon {
+            color: var(--accent);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .guide-content h4 {
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+
+        .guide-content p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* Story Section */
+        .story-section {
+            background: var(--secondary);
+            border-radius: var(--radius);
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+        }
+
+        .story-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            color: var(--text);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .story-text {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            background: rgba(0, 212, 170, 0.1);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .highlight h3 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* HubCrypto Teaser */
+        .teaser-section {
+            background: var(--secondary);
+            border-radius: var(--radius);
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .teaser-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .teaser-text {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        /* Stats Mini */
+        .stats-mini {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .stat-mini {
+            background: rgba(0, 212, 170, 0.05);
+            border: 1px solid rgba(0, 212, 170, 0.2);
+            border-radius: var(--radius);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: block;
+            width: 100%;
+            background: var(--gradient);
+            color: white;
+            padding: 16px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 212, 170, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            padding: 30px 0;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <div class="header">
+            <img src="https://pbs.twimg.com/profile_images/2005002748316545024/srxpJR-5_400x400.jpg" alt="Maki" class="profile-img">
+            <h1>Mes Guides Crypto Gratuits</h1>
+            <p class="subtitle">Ce qui m'a vraiment aidé à comprendre le web3</p>
+        </div>
+
+        <!-- Free Guides Section -->
+        <div class="free-guides animate-fade-in">
+            <div class="guides-title">
+                <span>📚</span>
+                <span>Mes 3 ressources essentielles</span>
+            </div>
+            <p class="story-text">
+                Ces ressources m'ont sauvé plus d'une fois quand j'étais perdu. 
+                Prends-les, c'est gratuit et ça pourrait te faire économiser des milliers d'euros.
+            </p>
+            
+            <a href="https://www.privacyguides.org/en/" target="_blank" class="guide-item">
+                <span class="guide-icon">🔒</span>
+                <div class="guide-content">
+                    <h4>Privacy Guides</h4>
+                    <p>Protège ta vie privée en ligne - Essentiel</p>
+                </div>
+            </a>
+            
+            <a href="https://github.com/iAnonymous3000/cryptocurrency-wallet-opsec" target="_blank" class="guide-item">
+                <span class="guide-icon">💰</span>
+                <div class="guide-content">
+                    <h4>Wallet Security Guide</h4>
+                    <p>Tout sur la sécurité des wallets crypto</p>
+                </div>
+            </a>
+            
+            <a href="https://github.com/pFarb/awesome-crypto-papers" target="_blank" class="guide-item">
+                <span class="guide-icon">📚</span>
+                <div class="guide-content">
+                    <h4>Awesome Crypto Papers</h4>
+                    <p>Les fondements académiques de la crypto</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Mon histoire -->
+        <div class="story-section animate-fade-in">
+            <div class="story-title">
+                <span>📖</span>
+                <span>De zéro à crypto</span>
+            </div>
+            
+            <p class="story-text">
+                Je découvrais les cryptos en 2020. Auto-didacte, personne ne me comprenait. 
+                Ni ma famille, ni mes amis. Je perdais de l'argent sans comprendre pourquoi.
+            </p>
+            
+            <p class="story-text">
+                J'ai testé toutes les méthodes, suivi tous les "gurus", essayé tous les robots...
+                Rien ne marchait sur la durée.
+            </p>
+            
+            <div class="highlight">
+                <h3>✨ La révélation</h3>
+                <p class="story-text" style="margin-bottom: 0;">
+                    <strong>HubCrypto est le seul projet qui m'a permis d'être rentable sur la durée</strong>, 
+                    loin du bruit habituel, des promesses irréalistes et du bullshit qu'on voit partout.
+                </p>
+            </div>
+        </div>
+
+        <!-- HubCrypto Teaser -->
+        <div class="teaser-section animate-fade-in">
+            <span class="teaser-icon">🚀</span>
+            <h3>Pour aller plus loin...</h3>
+            
+            <p class="teaser-text">
+                Si toi aussi tu cherches quelque chose de solide, et pas du pump & dump, 
+                ça pourrait vraiment t'intéresser.
+            </p>
+
+            <!-- Mini stats -->
+            <div class="stats-mini">
+                <div class="stat-mini">
+                    <div class="stat-number">8+</div>
+                    <div class="stat-label">Années expérience</div>
+                </div>
+                <div class="stat-mini">
+                    <div class="stat-number">29</div>
+                    <div class="stat-label">Modules</div>
+                </div>
+                <div class="stat-mini">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Lives/mois</div>
+                </div>
+                <div class="stat-mini">
+                    <div class="stat-number">🎁</div>
+                    <div class="stat-label">Code -50%</div>
+                </div>
+            </div>
+
+            <p class="teaser-text">
+                <strong>Leur objectif :</strong> t'apprendre à comprendre, investir intelligemment 
+                et avancer en toute sérénité dans les écosystèmes décentralisés.
+            </p>
+
+            <a href="hubcrypto-details.html" class="cta-button animate-pulse">
+                👉 Découvrir HubCrypto + Code -50%
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Page faite à la main par <strong>Maki</strong></p>
+            <p style="font-size: 0.85rem; margin-top: 10px; opacity: 0.7;">
+                Contact : TikTok @tobeamaki<br>
+                Pas de tracking, juste du partage honnête
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
