@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Variables & Reset */
         :root {
@@ -265,10 +266,18 @@
             z-index: 1;
         }
 
-        .discord-icon {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            display: block;
+        .discord-icon-styled {
+            width: 80px;
+            height: 80px;
+            background: #5865F2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.4);
+            font-size: 2.5rem;
         }
 
         .discord-title {
@@ -670,10 +679,14 @@
             </div>
         </div>
 
-        <!-- Section Discord en valeur -->
+        <!-- Section Discord avec logo stylé -->
         <div class="discord-section animate-fade-in animate-glow">
             <div class="discord-content">
-                <span class="discord-icon animate-float">💬</span>
+                <!-- Logo Discord stylé de spec.html -->
+                <div class="discord-icon-styled animate-float">
+                    <i class="fab fa-discord"></i>
+                </div>
+                
                 <h2 class="discord-title">Rejoins la Communauté Discord</h2>
                 <p class="discord-subtitle">Le cœur vivant du Crypto Hub</p>
                 
